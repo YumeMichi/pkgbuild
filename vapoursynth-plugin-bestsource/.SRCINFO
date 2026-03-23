@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-bestsource-git
+pkgbase = vapoursynth-plugin-bestsource-yumemichi
 	pkgdesc = Plugin for Vapoursynth: bestsource (GIT version)
 	pkgver = r290.ff911fa
 	pkgrel = 1
@@ -20,4 +20,4 @@ pkgbase = vapoursynth-plugin-bestsource-git
 	sha256sums = SKIP
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-bestsource-git
+pkgname = vapoursynth-plugin-bestsource-yumemichi

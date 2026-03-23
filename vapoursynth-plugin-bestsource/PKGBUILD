@@ -1,7 +1,7 @@
 # Maintainer: witchymary
 
 _plug=bestsource
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=r290.ff911fa
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"

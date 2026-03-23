@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-vsakarin-git
+pkgbase = vapoursynth-plugin-vsakarin-yumemichi
 	pkgdesc = Plugin for Vapoursynth: vsakarin (GIT version)
 	pkgver = 0.96f.r128.6d7c733
 	pkgrel = 1
@@ -20,4 +20,4 @@ pkgbase = vapoursynth-plugin-vsakarin-git
 	sha256sums = SKIP
 	sha256sums = 60a93b109081d2d5e13375faa788a05db938f4769b7c995cc4130c94c79c37d3
 
-pkgname = vapoursynth-plugin-vsakarin-git
+pkgname = vapoursynth-plugin-vsakarin-yumemichi
