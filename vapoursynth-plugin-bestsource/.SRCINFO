@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-bestsource-yumemichi
 	pkgdesc = Plugin for Vapoursynth: bestsource (GIT version)
-	pkgver = r393.e37058f
+	pkgver = r411.ecfc9a3
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?p=1972253
 	arch = x86_64
