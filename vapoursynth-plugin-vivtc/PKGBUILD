@@ -31,7 +31,7 @@ pkgver() {
 }
 
 build() {
-  arch-meson "${_plug}" build
+  arch-meson "${_plug}" build --buildtype=release
   meson compile -C build
 }
 
