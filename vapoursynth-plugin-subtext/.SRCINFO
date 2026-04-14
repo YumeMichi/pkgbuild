@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-subtext-git
+pkgbase = vapoursynth-plugin-subtext-yumemichi
 	pkgdesc = Plugin for Vapoursynth: subtext (GIT version)
 	pkgver = R2.2.g8ae5ba2
 	pkgrel = 1
@@ -11,9 +11,10 @@ pkgbase = vapoursynth-plugin-subtext-git
 	depends = libass
 	depends = ffmpeg
 	provides = vapoursynth-plugin-subtext
+	provides = vapoursynth-plugin-subtext-git
 	conflicts = vapoursynth-plugin-subtext
+	conflicts = vapoursynth-plugin-subtext-git
 	source = subtext::git+https://github.com/vapoursynth/subtext.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-subtext-git
-
+pkgname = vapoursynth-plugin-subtext-yumemichi
