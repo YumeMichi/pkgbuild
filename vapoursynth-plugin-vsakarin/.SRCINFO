@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-vsakarin-yumemichi
 	pkgdesc = Plugin for Vapoursynth: vsakarin (GIT version)
-	pkgver = 0.96f.r153.13747fd
+	pkgver = 0.96f.r154.adbce65
 	pkgrel = 1
 	url = https://github.com/akarinVS/vapoursynth-plugin.git
 	arch = x86_64

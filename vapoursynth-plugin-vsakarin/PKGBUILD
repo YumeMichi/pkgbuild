@@ -3,7 +3,7 @@
 
 _plug=vsakarin
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=0.96f.r153.13747fd
+pkgver=0.96f.r154.adbce65
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
