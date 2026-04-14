@@ -1,7 +1,7 @@
 # Maintainer: Gustavo Alvarez <sl1pkn07@gmail.com>
 
 _plug=mvtools
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=23.8.g8ec2a19
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
@@ -15,8 +15,14 @@ makedepends=('git'
              'nasm'
              'meson'
              )
-provides=("vapoursynth-plugin-${_plug}")
-conflicts=("vapoursynth-plugin-${_plug}")
+provides=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
+conflicts=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
 source=("${_plug}::git+https://github.com/dubhater/vapoursynth-${_plug}.git")
 sha256sums=('SKIP')
 options=('debug')

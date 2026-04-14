@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-mvtools-git
+pkgbase = vapoursynth-plugin-mvtools-yumemichi
 	pkgdesc = Plugin for Vapoursynth: mvtools (GIT version)
 	pkgver = 23.8.g8ec2a19
 	pkgrel = 1
@@ -11,9 +11,11 @@ pkgbase = vapoursynth-plugin-mvtools-git
 	depends = vapoursynth
 	depends = fftw
 	provides = vapoursynth-plugin-mvtools
+	provides = vapoursynth-plugin-mvtools-git
 	conflicts = vapoursynth-plugin-mvtools
+	conflicts = vapoursynth-plugin-mvtools-git
 	options = debug
 	source = mvtools::git+https://github.com/dubhater/vapoursynth-mvtools.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-mvtools-git
+pkgname = vapoursynth-plugin-mvtools-yumemichi
