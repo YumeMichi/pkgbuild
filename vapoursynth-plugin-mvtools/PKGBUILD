@@ -2,19 +2,21 @@
 
 _plug=mvtools
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=23.8.g8ec2a19
+pkgver=24.12.gfee9a1b
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
 url="https://forum.doom9.org/showthread.php?t=171207"
 license=('GPL')
-depends=('vapoursynth'
-         'fftw'
-         )
-makedepends=('git'
-             'nasm'
-             'meson'
-             )
+depends=(
+  'vapoursynth'
+  'fftw'
+)
+makedepends=(
+  'git'
+  'nasm'
+  'meson'
+)
 provides=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
@@ -23,32 +25,26 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/dubhater/vapoursynth-${_plug}.git")
-sha256sums=('SKIP')
-options=('debug')
+_commit=fee9a1bf4a0a3e93ecb76e4e82418cb4c5dff391
+source=(
+  "${_plug}::git+https://github.com/dubhatervapoursynth/vapoursynth-${_plug}.git#commit=${_commit}"
+)
+sha256sums=(
+  'SKIP'
+)
 
 pkgver() {
   cd "${_plug}"
   echo "$(git describe --long --tags | tr - . |tr -d v)"
 }
 
-prepare() {
-  mkdir -p build
-
-  CFLAGS="${CFLAGS/-O2/-O3}"
-  CXXFLAGS="${CXXFLAGS/-O2/-O3}"
-}
-
 build() {
-  cd build
-  arch-meson "../${_plug}" \
-    --libdir /usr/lib/vapoursynth
-
-  ninja
+  arch-meson "${_plug}" build
+  meson compile -C build
 }
 
-package(){
-  DESTDIR="${pkgdir}" ninja -C build install
+package() {
+  DESTDIR="${pkgdir}" meson install -C build
 
   install -Dm644 "${_plug}/readme.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/readme.rst"
 }
