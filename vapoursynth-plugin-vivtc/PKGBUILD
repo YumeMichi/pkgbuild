@@ -2,14 +2,15 @@
 
 _plug=vivtc
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=R1.2.ged56d96
+pkgver=R1.4.g4ac661d
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('any')
 url='https://github.com/vapoursynth/vivtc'
 license=('MIT')
 depends=('vapoursynth')
-makedepends=('git'
+makedepends=(
+  'git'
   'meson'
 )
 provides=(
@@ -20,7 +21,8 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/vapoursynth/vivtc.git")
+_commit=4ac661d78eaf8b5ab7c5dd2d05c81234fe9aaca8
+source=("${_plug}::git+https://github.com/vapoursynth/vivtc.git#commit=${_commit}")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -28,18 +30,13 @@ pkgver() {
   echo "$(git describe --long --tags | tr - .)"
 }
 
-prepare() {
-  mkdir -p build
-}
-
 build() {
-  cd build
-  arch-meson "../${_plug}" --libdir /usr/lib/vapoursynth
-  ninja
+  arch-meson "${_plug}" build
+  meson compile -C build
 }
 
 package() {
-  DESTDIR="${pkgdir}" ninja -C build install
+  DESTDIR="${pkgdir}" meson install -C build
 
   install -Dm644 "${_plug}/docs/vivtc.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.rst"
 }
