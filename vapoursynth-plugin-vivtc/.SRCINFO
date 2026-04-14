@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-vivtc-git
+pkgbase = vapoursynth-plugin-vivtc-yumemichi
 	pkgdesc = Plugin for Vapoursynth: vivtc (GIT version)
 	pkgver = R1.2.ged56d96
 	pkgrel = 1
@@ -9,9 +9,10 @@ pkgbase = vapoursynth-plugin-vivtc-git
 	makedepends = meson
 	depends = vapoursynth
 	provides = vapoursynth-plugin-vivtc
+	provides = vapoursynth-plugin-vivtc-git
 	conflicts = vapoursynth-plugin-vivtc
+	conflicts = vapoursynth-plugin-vivtc-git
 	source = vivtc::git+https://github.com/vapoursynth/vivtc.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-vivtc-git
-
+pkgname = vapoursynth-plugin-vivtc-yumemichi

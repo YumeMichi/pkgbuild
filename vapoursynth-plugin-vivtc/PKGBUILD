@@ -1,7 +1,7 @@
 # Maintainer:  Joshua Holmer <jholmer.in@gmail.com>
 
 _plug=vivtc
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=R1.2.ged56d96
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
@@ -12,8 +12,14 @@ depends=('vapoursynth')
 makedepends=('git'
   'meson'
 )
-provides=("vapoursynth-plugin-${_plug}")
-conflicts=("vapoursynth-plugin-${_plug}")
+provides=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
+conflicts=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
 source=("${_plug}::git+https://github.com/vapoursynth/vivtc.git")
 sha256sums=('SKIP')
 
