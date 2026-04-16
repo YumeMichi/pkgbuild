@@ -29,7 +29,6 @@ conflicts=(
 )
 source=("${_plug}::git+https://github.com/vapoursynth/bestsource.git")
 sha256sums=('SKIP')
-options=('debug')
 
 pkgver() {
   cd "$_plug"
