@@ -1,7 +1,7 @@
 # Maintainer: Josh Holmer <jholmer.in@gmail.com>
 
 _plug=resize2
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=r18.f2c97f8
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
@@ -10,8 +10,14 @@ url='https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2'
 license=('LGPL-2.1-or-later')
 depends=('vapoursynth' 'zimg')
 makedepends=('git' 'meson' 'ninja')
-provides=("vapoursynth-plugin-${_plug}")
-conflicts=("vapoursynth-plugin-${_plug}")
+provides=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
+conflicts=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
 source=("${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2.git")
 sha256sums=('SKIP')
 

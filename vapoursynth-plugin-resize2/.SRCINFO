@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-resize2-git
+pkgbase = vapoursynth-plugin-resize2-yumemichi
 	pkgdesc = Plugin for VapourSynth: resize2 (GIT version)
 	pkgver = r18.f2c97f8
 	pkgrel = 1
@@ -11,8 +11,10 @@ pkgbase = vapoursynth-plugin-resize2-git
 	depends = vapoursynth
 	depends = zimg
 	provides = vapoursynth-plugin-resize2
+	provides = vapoursynth-plugin-resize2-git
 	conflicts = vapoursynth-plugin-resize2
+	conflicts = vapoursynth-plugin-resize2-git
 	source = resize2::git+https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-resize2-git
+pkgname = vapoursynth-plugin-resize2-yumemichi
