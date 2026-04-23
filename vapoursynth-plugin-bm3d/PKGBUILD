@@ -2,18 +2,20 @@
 
 _plug=bm3d
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=9.0.gfe1a433
+pkgver=9.3.g9fe2165
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
 url='https://forum.doom9.org/showthread.php?t=172172'
 license=('MIT')
-depends=('vapoursynth'
-         'fftw'
-         )
-makedepends=('git'
-             'meson'
-             )
+depends=(
+  'vapoursynth'
+  'fftw'
+)
+makedepends=(
+  'git'
+  'meson'
+)
 provides=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
@@ -22,31 +24,22 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git")
+_commit=9fe21659e5d736a5e5315588e488fd9749681d40
+source=("${_plug}::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git#commit=${_commit}")
 sha256sums=('SKIP')
-options=('debug')
 
 pkgver() {
   cd "${_plug}"
   echo "$(git describe --long --tags | tr - . | tr -d r)"
 }
 
-prepare() {
-  mkdir -p build
-
-  sed '27a#include <limits>' -i bm3d/include/VBM3D_Final.h
-}
-
 build() {
-  cd build
-  arch-meson "../${_plug}" \
-    --libdir /usr/lib/vapoursynth
-
-  ninja
+  arch-meson "${_plug}" build --buildtype=release -Dcpp_std=c++17
+  meson compile -C build
 }
 
 package(){
-  DESTDIR="${pkgdir}" ninja -C build install
+  DESTDIR="${pkgdir}" meson install -C build
 
   install -Dm644 "${_plug}/README.md" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }

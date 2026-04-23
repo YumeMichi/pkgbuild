@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-bm3d-yumemichi
 	pkgdesc = Plugin for Vapoursynth: bm3d (GIT version)
-	pkgver = 9.0.gfe1a433
+	pkgver = 9.3.g9fe2165
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?t=172172
 	arch = x86_64
@@ -13,8 +13,7 @@ pkgbase = vapoursynth-plugin-bm3d-yumemichi
 	provides = vapoursynth-plugin-bm3d-git
 	conflicts = vapoursynth-plugin-bm3d
 	conflicts = vapoursynth-plugin-bm3d-git
-	options = debug
-	source = bm3d::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git
+	source = bm3d::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git#commit=9fe21659e5d736a5e5315588e488fd9749681d40
 	sha256sums = SKIP
 
 pkgname = vapoursynth-plugin-bm3d-yumemichi
