@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-bm3d-git
+pkgbase = vapoursynth-plugin-bm3d-yumemichi
 	pkgdesc = Plugin for Vapoursynth: bm3d (GIT version)
 	pkgver = 9.0.gfe1a433
 	pkgrel = 1
@@ -10,9 +10,11 @@ pkgbase = vapoursynth-plugin-bm3d-git
 	depends = vapoursynth
 	depends = fftw
 	provides = vapoursynth-plugin-bm3d
+	provides = vapoursynth-plugin-bm3d-git
 	conflicts = vapoursynth-plugin-bm3d
+	conflicts = vapoursynth-plugin-bm3d-git
 	options = debug
 	source = bm3d::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-bm3d-git
+pkgname = vapoursynth-plugin-bm3d-yumemichi
