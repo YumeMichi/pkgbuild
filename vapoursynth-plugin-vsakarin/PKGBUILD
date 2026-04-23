@@ -12,12 +12,12 @@ depends=(
   'vapoursynth'
   'gcc-libs' # libgcc_s.so libstdc++.so
   'glibc' # ld-linux-x86-64.so libc.so libm.so
-  'llvm21-libs' # libLLVM-18.so
+  'llvm-libs' # libLLVM-18.so
 )
 makedepends=(
   'git'
   'meson'
-  'llvm21'
+  'llvm'
 )
 provides=(
   "vapoursynth-plugin-${_plug}"
@@ -44,7 +44,6 @@ pkgver() {
 
 prepare() {
   patch -d "${_plug}" -p1 -i "${srcdir}/23.diff"
-  export PATH=/usr/lib/llvm21/bin:$PATH
 }
 
 build() {
