@@ -2,7 +2,7 @@
 
 _plug=vsakarin
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=0.96f.r154.adbce65
+pkgver=0.96f.r155.b3ea6ce
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -27,8 +27,9 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
+_commit=b3ea6ce86724dc575241818447d88eabfa7f90dc
 source=(
-  "${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/akarin-vapoursynth-plugin.git"
+  "${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/akarin-vapoursynth-plugin.git#commit=${_commit}"
   "https://github.com/AkarinVS/vapoursynth-plugin/pull/23.diff"
 )
 sha256sums=(
