@@ -26,12 +26,8 @@ conflicts=(
   "vapoursynth-plugin-${_plug}-git"
 )
 _commit=fee9a1bf4a0a3e93ecb76e4e82418cb4c5dff391
-source=(
-  "${_plug}::git+https://github.com/dubhatervapoursynth/vapoursynth-${_plug}.git#commit=${_commit}"
-)
-sha256sums=(
-  'SKIP'
-)
+source=("${_plug}::git+https://github.com/dubhatervapoursynth/vapoursynth-${_plug}.git#commit=${_commit}")
+sha256sums=('SKIP')
 
 pkgver() {
   cd "${_plug}"
@@ -45,6 +41,5 @@ build() {
 
 package() {
   DESTDIR="${pkgdir}" meson install -C build
-
   install -Dm644 "${_plug}/readme.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/readme.rst"
 }

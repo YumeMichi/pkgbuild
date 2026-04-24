@@ -36,7 +36,6 @@ sha256sums=(
   'SKIP'
   '60a93b109081d2d5e13375faa788a05db938f4769b7c995cc4130c94c79c37d3'
 )
-options=('debug')
 
 pkgver() {
   cd "${_plug}"
@@ -48,9 +47,7 @@ prepare() {
 }
 
 build() {
-  arch-meson "${_plug}" build \
-    --buildtype=release \
-    -Dstatic-llvm=false
+  arch-meson "${_plug}" build --buildtype=release -Dstatic-llvm=false
   meson compile -C build
 }
 

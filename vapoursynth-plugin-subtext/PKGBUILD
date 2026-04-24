@@ -41,6 +41,5 @@ build() {
 
 package() {
   DESTDIR="${pkgdir}" meson install -C build
-
-  install -Dm644 "${_plug}"/docs/subtext.rst "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.rst"
+  install -Dm644 "${_plug}/docs/subtext.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.rst"
 }

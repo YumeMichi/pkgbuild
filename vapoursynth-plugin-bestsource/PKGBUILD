@@ -9,7 +9,8 @@ pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
 url='https://forum.doom9.org/showthread.php?p=1972253'
 license=('MIT')
-depends=('vapoursynth'
+depends=(
+  'vapoursynth'
   'libavcodec.so'
   'libavformat.so'
   'jansson'
@@ -31,7 +32,7 @@ source=("${_plug}::git+https://github.com/vapoursynth/bestsource.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$_plug"
+  cd "${_plug}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
@@ -41,11 +42,11 @@ prepare() {
 }
 
 build() {
-  arch-meson "$_plug" build --buildtype=release
+  arch-meson "${_plug}" build --buildtype=release
   meson compile -C build
 }
 
 package(){
-  DESTDIR="$pkgdir" meson install -C build
+  DESTDIR="${pkgdir}" meson install -C build
   install -Dm644 "${srcdir}/bestsource/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
