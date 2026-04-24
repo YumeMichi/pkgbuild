@@ -2,7 +2,7 @@
 
 _plug=resize2
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r43.f602b8a
+pkgver=r56.db15dbe
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -18,8 +18,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-_tag=0.4.0
-source=("${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2.git#tag=${_tag}")
+source=("${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -29,15 +28,18 @@ pkgver() {
 
 prepare() {
   cd "${_plug}"
+  rm -rf dist build
+  meson subprojects purge --confirm
   meson subprojects download
 }
 
 build() {
-  arch-meson "${_plug}" build --buildtype=release
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package() {
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${_plug}/ReadMe.md" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 ReadMe.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }

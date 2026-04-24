@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-resize2-yumemichi
 	pkgdesc = Plugin for VapourSynth: resize2 (GIT version)
-	pkgver = r43.f602b8a
+	pkgver = r56.db15dbe
 	pkgrel = 1
 	url = https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2
 	arch = x86_64
@@ -14,7 +14,7 @@ pkgbase = vapoursynth-plugin-resize2-yumemichi
 	provides = vapoursynth-plugin-resize2-git
 	conflicts = vapoursynth-plugin-resize2
 	conflicts = vapoursynth-plugin-resize2-git
-	source = resize2::git+https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2.git#tag=0.4.0
+	source = resize2::git+https://github.com/Jaded-Encoding-Thaumaturgy/vapoursynth-resize2.git
 	sha256sums = SKIP
 
 pkgname = vapoursynth-plugin-resize2-yumemichi
