@@ -16,7 +16,6 @@ pkgbase = vapoursynth-plugin-bestsource-yumemichi
 	provides = libbestsource.so
 	conflicts = vapoursynth-plugin-bestsource
 	conflicts = vapoursynth-plugin-bestsource-git
-	options = debug
 	source = bestsource::git+https://github.com/vapoursynth/bestsource.git
 	sha256sums = SKIP
 

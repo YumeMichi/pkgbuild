@@ -38,15 +38,17 @@ pkgver() {
 
 prepare() {
   cd "${_plug}"
+  rm -rf dist build
   git submodule update --init
 }
 
 build() {
-  arch-meson "${_plug}" build --buildtype=release
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package(){
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${srcdir}/bestsource/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
