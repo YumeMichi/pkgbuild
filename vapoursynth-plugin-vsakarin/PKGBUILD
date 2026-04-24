@@ -2,7 +2,7 @@
 
 _plug=vsakarin
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=0.96f.r155.b3ea6ce
+pkgver=0.96f.r168.6263233
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -27,9 +27,8 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-_commit=b3ea6ce86724dc575241818447d88eabfa7f90dc
 source=(
-  "${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/akarin-vapoursynth-plugin.git#commit=${_commit}"
+  "${_plug}::git+https://github.com/Jaded-Encoding-Thaumaturgy/akarin-vapoursynth-plugin.git"
   "https://github.com/AkarinVS/vapoursynth-plugin/pull/23.diff"
 )
 sha256sums=(
@@ -43,15 +42,19 @@ pkgver() {
 }
 
 prepare() {
-  patch -d "${_plug}" -p1 -i "${srcdir}/23.diff"
+  cd "${_plug}"
+  rm -rf dist build
+  patch -p1 -i "${srcdir}/23.diff"
+  sed -i "s/\(option('static-llvm'.*value: \)true/\1false/" meson_options.txt
 }
 
 build() {
-  arch-meson "${_plug}" build --buildtype=release -Dstatic-llvm=false
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package() {
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${_plug}/README.md" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }
