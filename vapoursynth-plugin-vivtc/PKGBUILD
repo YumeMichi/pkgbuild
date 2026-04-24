@@ -2,7 +2,7 @@
 
 _plug=vivtc
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=R1.4.g4ac661d
+pkgver=R2.0.g4734c8b
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('any')
@@ -21,8 +21,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-_commit=4ac661d78eaf8b5ab7c5dd2d05c81234fe9aaca8
-source=("${_plug}::git+https://github.com/vapoursynth/vivtc.git#commit=${_commit}")
+source=("${_plug}::git+https://github.com/vapoursynth/vivtc.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -30,12 +29,18 @@ pkgver() {
   echo "$(git describe --long --tags | tr - .)"
 }
 
+prepare() {
+  cd "${_plug}"
+  rm -rf dist build
+}
+
 build() {
-  arch-meson "${_plug}" build --buildtype=release
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package() {
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${_plug}/docs/vivtc.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.rst"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }
