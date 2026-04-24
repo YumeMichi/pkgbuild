@@ -2,7 +2,7 @@
 
 _plug=bm3d
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=9.3.g9fe2165
+pkgver=10.0.g5b38527
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -24,8 +24,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-_commit=9fe21659e5d736a5e5315588e488fd9749681d40
-source=("${_plug}::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git#commit=${_commit}")
+source=("${_plug}::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -33,12 +32,18 @@ pkgver() {
   echo "$(git describe --long --tags | tr - . | tr -d r)"
 }
 
+prepare() {
+  cd "${_plug}"
+  rm -rf dist build
+}
+
 build() {
-  arch-meson "${_plug}" build --buildtype=release -Dcpp_std=c++17
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package(){
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${_plug}/README.md" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${pkgname}/README.md"
 }
