@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-subtext-yumemichi
 	pkgdesc = Plugin for Vapoursynth: subtext (GIT version)
-	pkgver = R5.5.gd03b913
+	pkgver = R6.3.ge5a418a
 	pkgrel = 1
 	url = https://github.com/vapoursynth/subtext
 	arch = any
@@ -14,7 +14,7 @@ pkgbase = vapoursynth-plugin-subtext-yumemichi
 	provides = vapoursynth-plugin-subtext-git
 	conflicts = vapoursynth-plugin-subtext
 	conflicts = vapoursynth-plugin-subtext-git
-	source = subtext::git+https://github.com/vapoursynth/subtext.git#commit=d03b9131aacd2f541be6440dca728773fe8a53e3
+	source = subtext::git+https://github.com/vapoursynth/subtext.git
 	sha256sums = SKIP
 
 pkgname = vapoursynth-plugin-subtext-yumemichi

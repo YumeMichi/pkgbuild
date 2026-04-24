@@ -2,7 +2,7 @@
 
 _plug=subtext
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=R5.5.gd03b913
+pkgver=R6.3.ge5a418a
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('any')
@@ -25,8 +25,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-_commit=d03b9131aacd2f541be6440dca728773fe8a53e3
-source=("${_plug}::git+https://github.com/vapoursynth/subtext.git#commit=${_commit}")
+source=("${_plug}::git+https://github.com/vapoursynth/subtext.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -34,12 +33,18 @@ pkgver() {
   echo "$(git describe --long --tags | tr - .)"
 }
 
+prepare() {
+  cd "${_plug}"
+  rm -rf dist build
+}
+
 build() {
-  arch-meson "${_plug}" build --buildtype=release
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package() {
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${_plug}/docs/subtext.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.rst"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }
