@@ -2,7 +2,7 @@
 
 _plug=mvtools
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=24.12.gfee9a1b
+pkgver=26.0.gc8d83aa
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -25,8 +25,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-_commit=fee9a1bf4a0a3e93ecb76e4e82418cb4c5dff391
-source=("${_plug}::git+https://github.com/dubhatervapoursynth/vapoursynth-${_plug}.git#commit=${_commit}")
+source=("${_plug}::git+https://github.com/dubhatervapoursynth/vapoursynth-${_plug}.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -34,12 +33,19 @@ pkgver() {
   echo "$(git describe --long --tags | tr - . |tr -d v)"
 }
 
+prepare() {
+  cd "${_plug}"
+  rm -rf dist build
+  git submodule update --init
+}
+
 build() {
-  arch-meson "${_plug}" build --buildtype=release
-  meson compile -C build
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package() {
-  DESTDIR="${pkgdir}" meson install -C build
-  install -Dm644 "${_plug}/readme.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/readme.rst"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 readme.rst "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/readme.rst"
 }

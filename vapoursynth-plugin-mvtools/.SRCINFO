@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-mvtools-yumemichi
 	pkgdesc = Plugin for Vapoursynth: mvtools (GIT version)
-	pkgver = 24.12.gfee9a1b
+	pkgver = 26.0.gc8d83aa
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?t=171207
 	arch = x86_64
@@ -14,7 +14,7 @@ pkgbase = vapoursynth-plugin-mvtools-yumemichi
 	provides = vapoursynth-plugin-mvtools-git
 	conflicts = vapoursynth-plugin-mvtools
 	conflicts = vapoursynth-plugin-mvtools-git
-	source = mvtools::git+https://github.com/dubhatervapoursynth/vapoursynth-mvtools.git#commit=fee9a1bf4a0a3e93ecb76e4e82418cb4c5dff391
+	source = mvtools::git+https://github.com/dubhatervapoursynth/vapoursynth-mvtools.git
 	sha256sums = SKIP
 
 pkgname = vapoursynth-plugin-mvtools-yumemichi
