@@ -123,12 +123,12 @@ provides=(
   libswresample.so
   libswscale.so
 )
-_tag=150ba6ddfabb5c433bb2fb3ee546d2a96e59066d
+_tag=91ec96c98b09f2569628ce8550704fc3ec6f1027
 source=(
-  git+https://git.ffmpeg.org/ffmpeg.git?signed#tag=${_tag}
+  ffmpeg::git+https://github.com/YumeMichi/FFmpeg#tag=${_tag}
   0001-Add-av_stream_get_first_dts-for-Chromium.patch
 )
-b2sums=('f0725f1156a5fa34fb5ee617c0c02dd3615c91ea1fd6f94c7d622106ecaedeee0ce74d68b9965ceb6aa70ee1c539b409bc2102c3cf2309a85340af63d2a3e03e'
+b2sums=('eb20754f5cc5810533668e0dfd31477ee502bd50c95b6dcca4c627250decea5022a690eed514b53df27e355f039d0d360dd58bbe8faf4676f445a85979ab9174'
         'e5f7b79f7731be9ee5a7280a9221fb531ac5a2d9820fc5870b68b0eabea667dfbe8f39f41c1e1763a4c84982896afaa54c81ff57847d203b70afafd726689e5d')
 validpgpkeys=(DD1EC9E8DE085C629B3E1846B18E8928B3948D64) # Michael Niedermayer <michael@niedermayer.cc>
 
