@@ -2,7 +2,7 @@
 # Contributor: Mikuro Kagamine <mikurok@forgecrushing.com>
 
 _plug=znedi3
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=2.1.22.g4e88a5d
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT Version)"
@@ -13,8 +13,14 @@ depends=('vapoursynth'
          'vapoursynth-plugin-nnedi3_weights_bin'
          )
 makedepends=('git')
-provides=("vapoursynth-plugin-${_plug}")
-conflicts=("vapoursynth-plugin-${_plug}")
+provides=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
+conflicts=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
 source=("${_plug}::git+https://github.com/sekrit-twc/${_plug}.git"
         'git+https://github.com/sekrit-twc/vsxx.git'
         'git+https://github.com/sekrit-twc/graphengine.git'
