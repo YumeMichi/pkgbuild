@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-lsmashsource-git
+pkgbase = vapoursynth-plugin-lsmashsource-yumemichi
 	pkgdesc = Plugin for Vapoursynth: lsmashsource (GIT version)
 	pkgver = r1036.86f757d
 	pkgrel = 1
@@ -14,9 +14,10 @@ pkgbase = vapoursynth-plugin-lsmashsource-git
 	depends = libswscale.so
 	depends = liblsmash.so
 	provides = vapoursynth-plugin-lsmashsource
+	provides = vapoursynth-plugin-lsmashsource-git
 	conflicts = vapoursynth-plugin-lsmashsource
+	conflicts = vapoursynth-plugin-lsmashsource-git
 	source = lsmashsource::git+https://github.com/HolyWu/L-SMASH-Works.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-lsmashsource-git
-
+pkgname = vapoursynth-plugin-lsmashsource-yumemichi
