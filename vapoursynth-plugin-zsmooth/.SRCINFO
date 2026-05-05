@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-zsmooth-git
+pkgbase = vapoursynth-plugin-zsmooth-yumemichi
 	pkgdesc = Plugin for VapourSynth: zsmooth (GIT version)
 	pkgver = r410.811e14b
 	pkgrel = 1
@@ -8,8 +8,10 @@ pkgbase = vapoursynth-plugin-zsmooth-git
 	makedepends = zig
 	depends = vapoursynth
 	provides = vapoursynth-plugin-zsmooth
+	provides = vapoursynth-plugin-zsmooth-git
 	conflicts = vapoursynth-plugin-zsmooth
+	conflicts = vapoursynth-plugin-zsmooth-git
 	source = zsmooth::git+https://github.com/adworacz/zsmooth.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-zsmooth-git
+pkgname = vapoursynth-plugin-zsmooth-yumemichi

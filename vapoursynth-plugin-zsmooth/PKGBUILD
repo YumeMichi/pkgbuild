@@ -1,7 +1,7 @@
 # Maintainer: TheFeelTrain <thefeeltrain@thefeeltrain.com>
 
 _plug=zsmooth
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=r410.811e14b
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
@@ -10,8 +10,14 @@ url='https://github.com/adworacz/zsmooth'
 license=('MIT')
 depends=('vapoursynth')
 makedepends=('zig')
-provides=("vapoursynth-plugin-${_plug}")
-conflicts=("vapoursynth-plugin-${_plug}")
+provides=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
+conflicts=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
 source=("${_plug}::git+https://github.com/adworacz/zsmooth.git")
 sha256sums=('SKIP')
 
