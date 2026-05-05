@@ -2,7 +2,7 @@
 
 _plug=zsmooth
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r410.811e14b
+pkgver=r470.c716c01
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -26,14 +26,19 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+  cd "${_plug}"
+  rm -rf dist build
+}
+
 build() {
-    cd "zsmooth"
-    zig build -Doptimize=ReleaseFast
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package() {
-    cd "zsmooth"
-    install -Dm755 zig-out/lib/libzsmooth.so "${pkgdir}/usr/lib/vapoursynth/libzsmooth.so"
-    install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
-    install -Dm644 LICENSE "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/LICENSE"
+  cd "${_plug}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
+  install -Dm644 LICENSE "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/LICENSE"
 }

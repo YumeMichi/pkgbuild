@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-zsmooth-yumemichi
 	pkgdesc = Plugin for VapourSynth: zsmooth (GIT version)
-	pkgver = r410.811e14b
+	pkgver = r470.c716c01
 	pkgrel = 1
 	url = https://github.com/adworacz/zsmooth
 	arch = x86_64
