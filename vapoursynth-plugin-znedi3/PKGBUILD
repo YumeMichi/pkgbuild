@@ -3,15 +3,16 @@
 
 _plug=znedi3
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=2.1.22.g4e88a5d
+pkgver=3.0.g4cf67b9
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT Version)"
 arch=('x86_64')
 url='https://github.com/sekrit-twc/znedi3'
 license=('GPL2')
-depends=('vapoursynth'
-         'vapoursynth-plugin-nnedi3_weights_bin'
-         )
+depends=(
+  'vapoursynth'
+  'vapoursynth-plugin-nnedi3_weights_bin'
+)
 makedepends=('git')
 provides=(
   "vapoursynth-plugin-${_plug}"
@@ -21,15 +22,8 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/sekrit-twc/${_plug}.git"
-        'git+https://github.com/sekrit-twc/vsxx.git'
-        'git+https://github.com/sekrit-twc/graphengine.git'
-        )
-sha256sums=('SKIP'
-            'SKIP'
-            'SKIP'
-            )
-options=('debug')
+source=("${_plug}::git+https://github.com/sekrit-twc/${_plug}.git")
+sha256sums=('SKIP')
 
 pkgver() {
   cd "${_plug}"
@@ -38,11 +32,7 @@ pkgver() {
 
 prepare() {
   cd "${_plug}"
-  git config submodule.vsplugin/vsxx.url "${srcdir}/vsxx"
-  git config submodule.graphengine.url "${srcdir}/graphengine"
-  git -c protocol.file.allow=always submodule update --init \
-    vsxx \
-    graphengine
+  git submodule update --init
 
   # use system vapoursynth headers
   rm -fr vsxx/VapourSynth
@@ -52,19 +42,19 @@ prepare() {
       -e '/VapourSynth4.h/d' \
       -e '/VSHelper4.h/d'\
       -i Makefile
-
 }
 
 build() {
   CXXFLAGS="${CXXFLAGS/-fno-plt/-fplt}"
-  CPPFLAGS+=" $(pkg-config --cflags vapoursynth) -DNNEDI3_WEIGHTS_PATH=\\\"/usr/lib/vapoursynth/nnedi3_weights.bin\\\""
+  CPPFLAGS+=" $(pkg-config --cflags vapoursynth) "
+  echo ${CPPFLAGS}
   LDFLAGS="${LDFLAGS/-z,now/-z,lazy}"
 
   make -C "${_plug}" X86=1 X86_AVX512=1
 }
 
 package(){
-  install -Dm755 "${_plug}/vsznedi3.so" "${pkgdir}/usr/lib/vapoursynth/libvsznedi3.so"
-
+  _sitepkgs=$(python -c "import site; print(site.getsitepackages()[0])")
+  install -Dm755 "${_plug}/vsznedi3.so" "${pkgdir}/${_sitepkgs}/vapoursynth/plugins/libvsznedi3.so"
   install -Dm644 "${_plug}/readme.rst" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/readme.rst"
 }

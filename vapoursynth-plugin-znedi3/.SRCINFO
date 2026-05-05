@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-znedi3-yumemichi
 	pkgdesc = Plugin for Vapoursynth: znedi3 (GIT Version)
-	pkgver = 2.1.22.g4e88a5d
+	pkgver = 3.0.g4cf67b9
 	pkgrel = 1
 	url = https://github.com/sekrit-twc/znedi3
 	arch = x86_64
@@ -12,12 +12,7 @@ pkgbase = vapoursynth-plugin-znedi3-yumemichi
 	provides = vapoursynth-plugin-znedi3-git
 	conflicts = vapoursynth-plugin-znedi3
 	conflicts = vapoursynth-plugin-znedi3-git
-	options = debug
 	source = znedi3::git+https://github.com/sekrit-twc/znedi3.git
-	source = git+https://github.com/sekrit-twc/vsxx.git
-	source = git+https://github.com/sekrit-twc/graphengine.git
-	sha256sums = SKIP
-	sha256sums = SKIP
 	sha256sums = SKIP
 
 pkgname = vapoursynth-plugin-znedi3-yumemichi
