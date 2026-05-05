@@ -1,12 +1,12 @@
 pkgbase = vapoursynth-plugin-vszip-yumemichi
 	pkgdesc = Plugin for VapourSynth: vszip (GIT version)
-	pkgver = r72.6968f2b
+	pkgver = r194.20b65d6
 	pkgrel = 1
 	url = https://github.com/dnjulek/vapoursynth-zip
 	arch = x86_64
 	license = MIT
 	makedepends = git
-	makedepends = zig-bin
+	makedepends = zig
 	depends = vapoursynth
 	provides = vapoursynth-plugin-vszip
 	provides = vapoursynth-plugin-vszip-git

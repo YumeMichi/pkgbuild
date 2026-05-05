@@ -2,14 +2,17 @@
 
 _plug=vszip
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r72.6968f2b
+pkgver=r194.20b65d6
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
 arch=('x86_64')
 url='https://github.com/dnjulek/vapoursynth-zip'
 license=('MIT')
 depends=('vapoursynth')
-makedepends=('git' 'zig-bin')
+makedepends=(
+  'git'
+  'zig'
+)
 provides=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
@@ -26,14 +29,18 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+  cd "${_plug}"
+  rm -rf dist build
+}
+
 build() {
-    cd "${_plug}"
-    zig build -Doptimize=ReleaseFast
+  cd "${_plug}"
+  python -m build --wheel
 }
 
 package(){
   cd "${_plug}"
-
-  install -Dm755 zig-out/lib/libvszip.so "${pkgdir}/usr/lib/vapoursynth/libvszip.so"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
   install -Dm644 README.md "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }
