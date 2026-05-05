@@ -10,6 +10,7 @@ url='https://github.com/akarinVS/vapoursynth-plugin.git'
 license=('GPL')
 depends=(
   'vapoursynth'
+  'boost'
   'gcc-libs' # libgcc_s.so libstdc++.so
   'glibc' # ld-linux-x86-64.so libc.so libm.so
   'llvm-libs' # libLLVM-18.so
@@ -46,6 +47,7 @@ prepare() {
   rm -rf dist build
   patch -p1 -i "${srcdir}/23.diff"
   sed -i "s/\(option('static-llvm'.*value: \)true/\1false/" meson_options.txt
+  sed -i "s/\(option('boost-charconv'.*value: \)false/\1true/" meson_options.txt
 }
 
 build() {
