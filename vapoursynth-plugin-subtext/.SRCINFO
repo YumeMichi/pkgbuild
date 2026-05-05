@@ -1,7 +1,7 @@
 pkgbase = vapoursynth-plugin-subtext-yumemichi
 	pkgdesc = Plugin for Vapoursynth: subtext (GIT version)
 	pkgver = R6.4.gef0e4c5
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/vapoursynth/subtext
 	arch = any
 	license = MIT

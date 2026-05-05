@@ -1,7 +1,7 @@
 pkgbase = vapoursynth-plugin-lsmashsource-yumemichi
 	pkgdesc = Plugin for Vapoursynth: lsmashsource (GIT version)
 	pkgver = r1282.0079a06
-	pkgrel = 1
+	pkgrel = 2
 	url = https://forum.doom9.org/showthread.php?t=167435
 	arch = x86_64
 	license = LGPL
