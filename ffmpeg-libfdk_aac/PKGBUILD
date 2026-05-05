@@ -7,7 +7,7 @@
 # Contributor: Tom Newsom <Jeepster@gmx.co.uk>
 # Contributor: Paul Mattal <paul@archlinux.org>
 
-pkgname=ffmpeg-libfdk_aac
+pkgname=ffmpeg-libfdk_aac-yumemichi
 pkgver=8.1.1
 pkgrel=1
 epoch=2
@@ -15,7 +15,7 @@ pkgdesc='Complete solution to record, convert and stream audio and video (Same a
 arch=(x86_64)
 url=https://ffmpeg.org
 license=(GPL-3.0-only custom:libfdk-aac)
-conflicts=("ffmpeg")
+conflicts=("ffmpeg" "ffmpeg-libfdk_aac")
 depends=(
   alsa-lib
   aom
@@ -114,6 +114,7 @@ optdepends=(
 )
 provides=(
   ffmpeg
+  ffmpeg-libfdk_aac
   libavcodec.so
   libavdevice.so
   libavfilter.so
