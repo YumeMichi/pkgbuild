@@ -2,18 +2,20 @@
 
 _plug=assrender
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=0.37.1.3.g84878b7
+pkgver=0.38.4.1.ga8186a3
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
 url='https://github.com/AmusementClub/assrender.git'
 license=('GPL2')
-depends=('vapoursynth'
-         'libass.so'
-         )
-makedepends=('git'
-             'cmake'
-             )
+depends=(
+  'vapoursynth'
+  'libass.so'
+)
+makedepends=(
+  'git'
+  'cmake'
+)
 provides=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
@@ -24,24 +26,21 @@ conflicts=(
 )
 source=("${_plug}::git+https://github.com/AmusementClub/assrender.git")
 sha256sums=('SKIP')
-options=('debug')
 
 pkgver() {
   cd "${_plug}"
   echo "$(git describe --long --tags | tr - .)"
 }
 
-
 build() {
   cmake -S "${_plug}" -B build \
-    -DCMAKE_BUILD_TYPE=None \
-    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release
 
   cmake --build build
 }
 
 package() {
-  DESTDIR="${pkgdir}" cmake --build build --target install
-
+  _sitepkgs="$(python -c 'import site; print(site.getsitepackages()[0])')"
+  install -Dm755 "build/src/libassrender.so" "${pkgdir}${_sitepkgs}/vapoursynth/plugins/libassrender.so"
   install -Dm644 "${_plug}/README.md" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }
