@@ -2,7 +2,7 @@
 
 _plug=subtext
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=R6.3.ge5a418a
+pkgver=R6.4.gef0e4c5
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('any')

@@ -3,7 +3,7 @@
 
 _plug=bestsource
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r411.ecfc9a3
+pkgver=r412.770f303
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')

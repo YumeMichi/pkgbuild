@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-bm3d-yumemichi
 	pkgdesc = Plugin for Vapoursynth: bm3d (GIT version)
-	pkgver = 10.0.g5b38527
+	pkgver = 10.1.0.gc9c8aaf
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?t=172172
 	arch = x86_64
