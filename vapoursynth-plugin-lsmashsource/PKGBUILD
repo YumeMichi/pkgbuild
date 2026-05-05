@@ -2,22 +2,24 @@
 
 _plug=lsmashsource
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r1036.86f757d
+pkgver=r1282.0079a06
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
 url='https://forum.doom9.org/showthread.php?t=167435'
 license=('LGPL')
-depends=('vapoursynth'
-         'libavutil.so'
-         'libavformat.so'
-         'libavcodec.so'
-         'libswscale.so'
-         'liblsmash.so'
-         )
-makedepends=('git'
-             'meson'
-             )
+depends=(
+  'vapoursynth'
+  'libavutil.so'
+  'libavformat.so'
+  'libavcodec.so'
+  'libswscale.so'
+  'liblsmash.so'
+)
+makedepends=(
+  'git'
+  'meson'
+)
 provides=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
@@ -26,29 +28,31 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/HomeOfAviSynthPlusEvolution/L-SMASH-Works.git")
-sha256sums=('SKIP')
+source=(
+  "${_plug}::git+https://github.com/HomeOfAviSynthPlusEvolution/L-SMASH-Works.git"
+  "0001.patch"
+)
+sha256sums=(
+  'SKIP'
+  '0e1f1f222f28ac8851e7f2803908ef1b3e6a4bb51ad953d8d29fd001c034b9f7'
+)
 
 pkgver() {
   cd "${_plug}"
-  #echo "$(git describe --long --tags | tr - .)"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-  mkdir -p build
-
-  rm -fr "${_plug}/include/"V*
+  cd "${_plug}"
+  patch -p1 -i "${srcdir}/0001.patch"
 }
 
 build() {
-  cd build
-
-  arch-meson "../${_plug}/VapourSynth"
+  arch-meson "${_plug}/VapourSynth" build --buildtype=release
+  meson compile -C build
 }
 
 package(){
-  DESTDIR="${pkgdir}" ninja -C build install
-
-  install -Dm644 "${_plug}/AviSynth/README" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README"
+  DESTDIR="${pkgdir}" meson install -C build
+  install -Dm644 "${_plug}/VapourSynth/README.md" "${pkgdir}/usr/share/doc/vapoursynth/plugins/${_plug}/README.md"
 }

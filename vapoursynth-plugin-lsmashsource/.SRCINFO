@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-lsmashsource-yumemichi
 	pkgdesc = Plugin for Vapoursynth: lsmashsource (GIT version)
-	pkgver = r1036.86f757d
+	pkgver = r1282.0079a06
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?t=167435
 	arch = x86_64
@@ -17,7 +17,9 @@ pkgbase = vapoursynth-plugin-lsmashsource-yumemichi
 	provides = vapoursynth-plugin-lsmashsource-git
 	conflicts = vapoursynth-plugin-lsmashsource
 	conflicts = vapoursynth-plugin-lsmashsource-git
-	source = lsmashsource::git+https://github.com/HolyWu/L-SMASH-Works.git
+	source = lsmashsource::git+https://github.com/HomeOfAviSynthPlusEvolution/L-SMASH-Works.git
+	source = 0001.patch
 	sha256sums = SKIP
+	sha256sums = 0e1f1f222f28ac8851e7f2803908ef1b3e6a4bb51ad953d8d29fd001c034b9f7
 
 pkgname = vapoursynth-plugin-lsmashsource-yumemichi
