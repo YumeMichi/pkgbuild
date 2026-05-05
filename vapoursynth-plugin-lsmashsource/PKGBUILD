@@ -26,7 +26,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/HolyWu/L-SMASH-Works.git")
+source=("${_plug}::git+https://github.com/HomeOfAviSynthPlusEvolution/L-SMASH-Works.git")
 sha256sums=('SKIP')
 
 pkgver() {
