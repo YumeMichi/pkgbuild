@@ -1,7 +1,7 @@
 # Maintainer: julek <dione@julek.org>
 
 _plug=vszip
-pkgname=vapoursynth-plugin-${_plug}-git
+pkgname=vapoursynth-plugin-${_plug}-yumemichi
 pkgver=r72.6968f2b
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
@@ -10,8 +10,14 @@ url='https://github.com/dnjulek/vapoursynth-zip'
 license=('MIT')
 depends=('vapoursynth')
 makedepends=('git' 'zig-bin')
-provides=("vapoursynth-plugin-${_plug}")
-conflicts=("vapoursynth-plugin-${_plug}")
+provides=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
+conflicts=(
+  "vapoursynth-plugin-${_plug}"
+  "vapoursynth-plugin-${_plug}-git"
+)
 source=("${_plug}::git+https://github.com/dnjulek/vapoursynth-zip.git")
 sha256sums=('SKIP')
 
