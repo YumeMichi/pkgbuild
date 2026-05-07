@@ -1,4 +1,4 @@
-pkgbase = vapoursynth-plugin-dctfilter-git
+pkgbase = vapoursynth-plugin-dctfilter-yumemichi
 	pkgdesc = Plugin for Vapoursynth: dctfilter (GIT version)
 	pkgver = 2.1.1.g3c9cbea
 	pkgrel = 1
@@ -10,9 +10,11 @@ pkgbase = vapoursynth-plugin-dctfilter-git
 	depends = vapoursynth
 	depends = fftw
 	provides = vapoursynth-plugin-dctfilter
+	provides = vapoursynth-plugin-dctfilter-git
 	conflicts = vapoursynth-plugin-dctfilter
+	conflicts = vapoursynth-plugin-dctfilter-git
 	options = debug
 	source = dctfilter::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-DCTFilter.git
 	sha256sums = SKIP
 
-pkgname = vapoursynth-plugin-dctfilter-git
+pkgname = vapoursynth-plugin-dctfilter-yumemichi
