@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-dctfilter-yumemichi
 	pkgdesc = Plugin for Vapoursynth: dctfilter (GIT version)
-	pkgver = 2.1.1.g3c9cbea
+	pkgver = 3.2.0.g45bc72a
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?t=171039
 	arch = x86_64
@@ -13,8 +13,7 @@ pkgbase = vapoursynth-plugin-dctfilter-yumemichi
 	provides = vapoursynth-plugin-dctfilter-git
 	conflicts = vapoursynth-plugin-dctfilter
 	conflicts = vapoursynth-plugin-dctfilter-git
-	options = debug
-	source = dctfilter::git+https://github.com/HomeOfVapourSynthEvolution/VapourSynth-DCTFilter.git
+	source = dctfilter::git+https://github.com/HolyWu/VapourSynth-DCTFilter.git
 	sha256sums = SKIP
 
 pkgname = vapoursynth-plugin-dctfilter-yumemichi
