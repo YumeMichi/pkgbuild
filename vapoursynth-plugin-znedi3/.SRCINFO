@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-znedi3-yumemichi
 	pkgdesc = Plugin for Vapoursynth: znedi3 (GIT Version)
-	pkgver = 3.0.g4cf67b9
+	pkgver = 3.2.0.g4da7157
 	pkgrel = 1
 	url = https://github.com/sekrit-twc/znedi3
 	arch = x86_64

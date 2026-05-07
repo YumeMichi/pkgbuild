@@ -3,7 +3,7 @@
 
 _plug=znedi3
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=3.0.g4cf67b9
+pkgver=3.2.0.g4da7157
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT Version)"
 arch=('x86_64')

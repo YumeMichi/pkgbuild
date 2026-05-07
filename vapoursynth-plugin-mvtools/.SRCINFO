@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-mvtools-yumemichi
 	pkgdesc = Plugin for Vapoursynth: mvtools (GIT version)
-	pkgver = 26.0.gc8d83aa
+	pkgver = 29_2.0.g17250aa
 	pkgrel = 1
 	url = https://forum.doom9.org/showthread.php?t=171207
 	arch = x86_64

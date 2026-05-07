@@ -3,7 +3,7 @@
 
 pkgname=python-unitypy-yumemichi
 _pkgname=UnityPy
-pkgver=r779.3472646
+pkgver=r780.38db334
 pkgrel=1
 pkgdesc="A unity asset extractor based on unitypack and AssetStudio."
 arch=('x86_64')

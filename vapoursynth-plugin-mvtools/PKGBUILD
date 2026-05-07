@@ -2,7 +2,7 @@
 
 _plug=mvtools
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=26.0.gc8d83aa
+pkgver=29_2.0.g17250aa
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')

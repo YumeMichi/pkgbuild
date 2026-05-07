@@ -2,7 +2,7 @@
 
 _plug=dctfilter
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=3.2.0.g45bc72a
+pkgver=3.2.1.gc924a7a
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
