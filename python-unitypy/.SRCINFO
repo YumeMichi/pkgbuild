@@ -1,4 +1,4 @@
-pkgbase = python-unitypy-git
+pkgbase = python-unitypy-yumemichi
 	pkgdesc = A unity asset extractor based on unitypack and AssetStudio.
 	pkgver = r779.3472646
 	pkgrel = 1
@@ -25,9 +25,11 @@ pkgbase = python-unitypy-git
 	depends = python-fmod-tookit-git
 	depends = python-astc-encoder-py-git
 	provides = python-unitypy
+	provides = python-unitypy-git
 	conflicts = python-unitypy
+	conflicts = python-unitypy-git
 	options = !strip
 	source = git+https://github.com/K0lb3/UnityPy.git
 	md5sums = SKIP
 
-pkgname = python-unitypy-git
+pkgname = python-unitypy-yumemichi

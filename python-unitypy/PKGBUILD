@@ -1,7 +1,7 @@
 # Contributor: Grey Christoforo <first name at last name dot net>
 # Maintainer: Neko_Rikka <yjzyl9008 at gmail dot com>
 
-pkgname=python-unitypy-git
+pkgname=python-unitypy-yumemichi
 _pkgname=UnityPy
 pkgver=r779.3472646
 pkgrel=1
@@ -9,8 +9,8 @@ pkgdesc="A unity asset extractor based on unitypack and AssetStudio."
 arch=('x86_64')
 url="https://github.com/K0lb3/UnityPy"
 license=('MIT')
-provides=('python-unitypy')
-conflicts=('python-unitypy')
+provides=('python-unitypy' 'python-unitypy-git')
+conflicts=('python-unitypy' 'python-unitypy-git')
 depends=(
   'python-attrs'
   'python-lz4'
