@@ -26,7 +26,7 @@ depends=(
 )
 checkdepends=('python-pytest' 'python-psutil')
 makedepends=('python-build' 'python-installer' 'python-setuptools' 'python-wheel' 'git' 'git-lfs')
-source=("git+https://github.com/K0lb3/UnityPy.git")
+source=("git+https://github.com/YumeMichi/UnityPy.git")
 md5sums=('SKIP')
 options=('!strip')
 
@@ -39,7 +39,7 @@ prepare() {
   cd ${_pkgname}
   git lfs install --local
   
-  git remote add network-origin "https://github.com/K0lb3/UnityPy.git" || true
+  git remote add network-origin "https://github.com/YumeMichi/UnityPy.git" || true
   echo "Fetching LFS objects from network..."
   git lfs fetch network-origin
   git lfs checkout

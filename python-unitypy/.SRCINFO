@@ -29,7 +29,7 @@ pkgbase = python-unitypy-yumemichi
 	conflicts = python-unitypy
 	conflicts = python-unitypy-git
 	options = !strip
-	source = git+https://github.com/K0lb3/UnityPy.git
+	source = git+https://github.com/YumeMichi/UnityPy.git
 	md5sums = SKIP
 
 pkgname = python-unitypy-yumemichi
