@@ -2,7 +2,7 @@
 
 _plug=assrender
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=0.38.4.1.ga8186a3
+pkgver=libass.0.17.5.1.g06f65a9
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')

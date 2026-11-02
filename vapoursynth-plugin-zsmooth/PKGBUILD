@@ -2,7 +2,7 @@
 
 _plug=zsmooth
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r540.e6b5eb7
+pkgver=r585.187ae30
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
 arch=('x86_64')

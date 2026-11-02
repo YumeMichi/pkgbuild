@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-vivtc-yumemichi
 	pkgdesc = Plugin for Vapoursynth: vivtc (GIT version)
-	pkgver = R2.0.g4734c8b
+	pkgver = R2.7.ge55cac5
 	pkgrel = 1
 	url = https://github.com/vapoursynth/vivtc
 	arch = any

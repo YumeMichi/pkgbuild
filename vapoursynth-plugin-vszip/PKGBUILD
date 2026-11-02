@@ -2,7 +2,7 @@
 
 _plug=vszip
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r221.85801f0
+pkgver=r308.f6a4c86
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
 arch=('x86_64')

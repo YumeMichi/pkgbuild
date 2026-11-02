@@ -2,7 +2,7 @@
 
 _plug=resize2
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r60.0d1b796
+pkgver=r68.2e8d4f6
 pkgrel=1
 pkgdesc="Plugin for VapourSynth: ${_plug} (GIT version)"
 arch=('x86_64')

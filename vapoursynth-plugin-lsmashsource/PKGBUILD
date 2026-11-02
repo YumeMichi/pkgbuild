@@ -2,7 +2,7 @@
 
 _plug=lsmashsource
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r1293.e990901
+pkgver=r1315.6d0c342
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -27,7 +27,7 @@ conflicts=(
   "vapoursynth-plugin-${_plug}"
   "vapoursynth-plugin-${_plug}-git"
 )
-source=("${_plug}::git+https://github.com/HomeOfAviSynthPlusEvolution/L-SMASH-Works.git")
+source=("${_plug}::git+https://github.com/YumeMichi/L-SMASH-Works.git")
 sha256sums=('SKIP')
 
 pkgver() {

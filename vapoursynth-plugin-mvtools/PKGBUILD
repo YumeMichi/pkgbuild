@@ -2,7 +2,7 @@
 
 _plug=mvtools
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=29_2.0.g17250aa
+pkgver=29_2.1.g2d47989
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -37,6 +37,11 @@ prepare() {
   cd "${_plug}"
   rm -rf dist build
   git submodule update --init
+
+  export GIT_COMMITTER_NAME="pkgbuild"
+  export GIT_COMMITTER_EMAIL="pkgbuild@localhost"
+  git fetch origin pull/104/head
+  git cherry-pick FETCH_HEAD
 }
 
 build() {

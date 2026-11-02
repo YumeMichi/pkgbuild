@@ -1,6 +1,6 @@
 pkgbase = vapoursynth-plugin-assrender-yumemichi
 	pkgdesc = Plugin for Vapoursynth: assrender (GIT version)
-	pkgver = 0.38.4.1.ga8186a3
+	pkgver = libass.0.17.5.1.g06f65a9
 	pkgrel = 1
 	url = https://github.com/AmusementClub/assrender.git
 	arch = x86_64

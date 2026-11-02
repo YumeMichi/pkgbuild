@@ -2,7 +2,7 @@
 
 _plug=vivtc
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=R2.0.g4734c8b
+pkgver=R2.7.ge55cac5
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('any')
