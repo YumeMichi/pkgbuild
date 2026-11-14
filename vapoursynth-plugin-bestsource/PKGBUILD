@@ -3,7 +3,7 @@
 
 _plug=bestsource
 pkgname=vapoursynth-plugin-${_plug}-yumemichi
-pkgver=r524.9faf675
+pkgver=r530.80e9a18
 pkgrel=1
 pkgdesc="Plugin for Vapoursynth: ${_plug} (GIT version)"
 arch=('x86_64')
@@ -40,6 +40,7 @@ prepare() {
   cd "${_plug}"
   rm -rf dist build
   git submodule update --init
+  sed -i "/option('enable_avisynth',/,/^[)]/ s/value: true/value: false/" meson_options.txt
 }
 
 build() {
